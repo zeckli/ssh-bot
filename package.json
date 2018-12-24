@@ -1,7 +1,7 @@
 {
   "name": "ssh-bot",
   "version": "0.1.0",
-  "description": "A dummy bot for SSH management",
+  "description": "A dummy ssh hosts management tool",
   "main": "./bin/index.js",
   "engines": {
     "node": ">=10"
@@ -17,8 +17,20 @@
     "shb": "npm run build; node bin/index.js",
     "tslint": "tslint -t verbose -c tslint.json -p . 'src/**/*.ts{,x}'"
   },
-  "author": "Wei Li <zeckli.devforgalaxy@gmail.com>",
+  "author": {
+    "name": "Wei Li",
+    "email": "zeckli.devforgalaxy@gmail.com",
+    "url": "https://github.com/zeckli"
+  },
   "license": "MIT",
+  "repository": "zeckli/ssh-bot",
+  "keywords": [
+    "command-line",
+    "shell",
+    "ssh",
+    "typescript",
+    "xterm"
+  ],
   "dependencies": {
     "chalk": "^2.4.1",
     "commander": "^2.19.0",
