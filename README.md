@@ -1,18 +1,18 @@
-<h1 style="text-align: center;">
+<h1 align="center">
     ssh-bot
 </h1>
 
-<p style="text-align: center;">
+<p align="center">
     A dummy ssh hosts management tool.
 </p>
 
-<p style="text-align: center;">
+<p align="center">
     <img alt="ssh-bot" src="media/ssh-bot.png" />
 </p>
 
-<p style="text-align: center;">
-    <a href="https://ci-server-a.airity.tw/zeckli/ssh-bot">
-        <img alt="Build Status" src="https://ci-server-a.airity.tw/api/badges/zeckli/ssh-bot/status.svg" />
+<p align="center">
+    <a href="https://cloud.drone.io">
+        <img alt="Build Status" src="https://cloud.drone.io/api/badges/zeckli/ssh-bot/status.svg" />
     </a>
     <a href="https://github.com/prettier/prettier">
         <img alt="Code Style" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" />
@@ -80,5 +80,5 @@ Show help information about ssh-bot.
 shb help
 ```
 
-
-
+## License
+[MIT](https://github.com/zeckli/ssh-bot/blob/develop/license.md)
