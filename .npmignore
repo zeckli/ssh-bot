@@ -3,6 +3,7 @@
 *.log
 coverage
 jest.config.js
+media
 package-lock.json
 src
 tsconfig.json
