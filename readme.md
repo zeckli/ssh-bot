@@ -46,7 +46,7 @@ To connect a host, you only need to `shb` with ssh additional options such as `-
 ```
 shb -A -p 22
 ```
-<p>
+<p align="center">
     <img alt="ssh-bot" src="media/ssh-bot-connect.png" />
 </p>
 
