@@ -2,9 +2,9 @@
     ssh-bot
 </h1>
 
-<p align="center">
-    A dummy ssh hosts management tool.
-</p>
+<h4 align="center">
+    A dummy ssh hosts management tool
+</h4>
 
 <p align="center">
     <img alt="ssh-bot" src="media/ssh-bot.png" />
