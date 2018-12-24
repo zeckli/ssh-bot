@@ -1,0 +1,24 @@
+kind: pipeline
+name: default
+
+steps:
+- name: node modules
+  image: node:10
+  commands:
+  - npm install --no-progress --quiet --unsafe-perm >  npm-install.log
+
+- name: lint
+  image: node:10
+  commands:
+  - npm run tslint
+  - npm run format
+
+- name: jest
+  image: node:10
+  commands:
+  - npm run jest
+
+- name: build
+  image: node:10
+  commands:
+  - npm run build
