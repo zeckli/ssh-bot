@@ -43,6 +43,9 @@ class SSHBot {
             case 'reset': {
                 return this.reset();
             }
+            case 'version': {
+                return this.version();
+            }
             default: {
                 return await this.run();
             }
@@ -197,7 +200,7 @@ class SSHBot {
     }
     help() {
         this.signale.start('Show help information');
-        console.log(utils_1.showBanner('0.1.0'));
+        console.log(utils_1.showBanner(constants_1.VERSION));
         console.log(utils_1.showHelp());
     }
     init() {
@@ -298,6 +301,9 @@ class SSHBot {
             process.exit();
         });
     }
+    version() {
+        this.signale.start(`version: ${constants_1.VERSION}`);
+    }
 }
 __decorate([
     decorators_1.spacing()
@@ -326,4 +332,7 @@ __decorate([
 __decorate([
     decorators_1.spacing()
 ], SSHBot.prototype, "run", null);
+__decorate([
+    decorators_1.spacing()
+], SSHBot.prototype, "version", null);
 exports.default = SSHBot;

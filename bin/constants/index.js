@@ -8,7 +8,8 @@ exports.COMMANDS = [
     'init',
     'list',
     'remove',
-    'reset'
+    'reset',
+    'version'
 ];
 exports.CONFIG = {
     dir: '.ssh-bot',
@@ -51,3 +52,4 @@ exports.SIGNALE_SETTING = {
         }
     }
 };
+exports.VERSION = '0.1.2';

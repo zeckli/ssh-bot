@@ -11,6 +11,7 @@ export type Command =
   | 'list'
   | 'remove'
   | 'reset'
+  | 'version'
 
 export interface Config {
   hosts: Host[]

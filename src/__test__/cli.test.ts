@@ -56,30 +56,40 @@ test('Initializing ssh-bot', () => {
 })
 
 test('Adding host', async () => {
-  prompts.inject(['server', '0.0.0.0', 'ubuntu' ,'/path/to/key.pem'])
+  prompts.inject(['server', '0.0.0.0', 'ubuntu', '/path/to/key.pem'])
   await bot.add()
   const testConfig = bot.loadConfig()
   expect(testConfig).toMatchObject({
-    hosts: [{
-      host: 'server',
-      hostName: '0.0.0.0',
-      user: 'ubuntu',
-      identityFile: '/path/to/key.pem'
-    }]
+    hosts: [
+      {
+        host: 'server',
+        hostName: '0.0.0.0',
+        user: 'ubuntu',
+        identityFile: '/path/to/key.pem'
+      }
+    ]
   })
 })
 
 test('Editing host', async () => {
-  prompts.inject([0, 'test-server', '0.0.0.1', 'ssh-bot', '/path/to/the/key.pem'])
+  prompts.inject([
+    0,
+    'test-server',
+    '0.0.0.1',
+    'ssh-bot',
+    '/path/to/the/key.pem'
+  ])
   await bot.edit()
   const testConfig = bot.loadConfig()
   expect(testConfig).toMatchObject({
-    hosts: [{
-      host: 'test-server',
-      hostName: '0.0.0.1',
-      user: 'ssh-bot',
-      identityFile: '/path/to/the/key.pem'
-    }]
+    hosts: [
+      {
+        host: 'test-server',
+        hostName: '0.0.0.1',
+        user: 'ssh-bot',
+        identityFile: '/path/to/the/key.pem'
+      }
+    ]
   })
 })
 
