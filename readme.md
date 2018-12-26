@@ -83,6 +83,10 @@ Show help information about ssh-bot.
 ```
 shb help
 ```
+You can also get current version.
+```
+shb version
+```
 
 ## License
 [MIT](https://github.com/zeckli/ssh-bot/blob/develop/license.md)
