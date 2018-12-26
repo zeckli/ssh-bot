@@ -38,4 +38,7 @@ exports.showHelp = () => `  Usage: shb [command]
 
     $ shb reset
       ${exports.colorize('Reset ssh-bot.', 'gray')}
+
+    $ shb version
+      ${exports.colorize('Show current version.', 'gray')}
 `;

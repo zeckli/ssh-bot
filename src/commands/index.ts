@@ -5,7 +5,7 @@ import * as rimraf from 'rimraf'
 import { Signale } from 'signale'
 import { BaseItem, Config, ConfigInfo, Command, Host } from '../types'
 import { colorize, showBanner, showHelp } from '../utils'
-import { COMMANDS, CONFIG, SIGNALE_SETTING } from '../constants'
+import { COMMANDS, CONFIG, SIGNALE_SETTING, VERSION } from '../constants'
 import { spacing } from '../decorators'
 
 export default class SSHBot {
@@ -49,6 +49,9 @@ export default class SSHBot {
       }
       case 'reset': {
         return this.reset()
+      }
+      case 'version': {
+        return this.version()
       }
       default: {
         return await this.run()
@@ -299,7 +302,7 @@ export default class SSHBot {
   @spacing()
   help(): any {
     this.signale.start('Show help information')
-    console.log(showBanner('0.1.1'))
+    console.log(showBanner(VERSION))
     console.log(showHelp())
   }
 
@@ -467,5 +470,16 @@ export default class SSHBot {
     term.on('close', () => {
       process.exit()
     })
+  }
+
+  /**
+   * Show version.
+   *
+   * Usage:
+   *   $ shb version
+   */
+  @spacing()
+  version(): any {
+    this.signale.start(`version: ${VERSION}`)
   }
 }

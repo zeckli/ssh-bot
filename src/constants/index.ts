@@ -8,7 +8,8 @@ export const COMMANDS: Command[] = [
   'init',
   'list',
   'remove',
-  'reset'
+  'reset',
+  'version'
 ]
 
 export const CONFIG = {
@@ -54,3 +55,5 @@ export const SIGNALE_SETTING = {
     }
   }
 }
+
+export const VERSION = '0.1.2'

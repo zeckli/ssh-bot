@@ -1,6 +1,6 @@
 {
   "name": "ssh-bot",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A dummy ssh hosts management tool",
   "main": "./bin/index.js",
   "engines": {
