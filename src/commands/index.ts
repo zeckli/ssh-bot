@@ -299,7 +299,7 @@ export default class SSHBot {
   @spacing()
   help(): any {
     this.signale.start('Show help information')
-    console.log(showBanner('0.1.0'))
+    console.log(showBanner('0.1.1'))
     console.log(showHelp())
   }
 
