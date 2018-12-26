@@ -20,7 +20,7 @@
 </p>
 
 ## Description
-`ssh-bot` is a dummy ssh hosts management tool that makes connectinng remote hosts and managing host information a little bit easier. :)
+`ssh-bot` is a dummy ssh hosts management tool written in Typescript. It makes connectinng remote hosts and managing host information a little bit easier. 🦊
 
 ## Install
 ```
@@ -43,6 +43,10 @@ shb add
 
 ### Connect
 To connect a host, you only need to `shb` with ssh additional options such as `-A` and `-p`.
+```
+shb [options]
+```
+For example:
 ```
 shb -A -p 22
 ```
