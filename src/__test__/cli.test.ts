@@ -9,8 +9,7 @@ const config = { hosts: [] }
 
 const host = { host: '', hostName: '', user: '', identityFile: '' }
 
-test('Validation for dispatch', () => {
-})
+test('Validation for dispatch', () => {})
 
 test('Validation for isValidCommand', () => {
   expect(bot.isValidCommand()).toBeTruthy()
@@ -66,9 +65,7 @@ test('Making host list', () => {
   })
 })
 
-test('Making host questions', () => {
-
-})
+test('Making host questions', () => {})
 
 test('Making SSH command', () => {
   expect(bot.makeSSHCommand({ host: '' })).toBeNull()
