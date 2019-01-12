@@ -9,6 +9,12 @@ const config = { hosts: [] }
 
 const host = { host: '', hostName: '', user: '', identityFile: '' }
 
+test('Validation for dispatch', () => {})
+
+test('Validation for isValidCommand', () => {
+  expect(bot.isValidCommand()).toBeTruthy()
+})
+
 test('Validation for config hosts', () => {
   expect(bot.path).not.toBeNull()
   expect(bot.path).not.toBeUndefined()
@@ -41,6 +47,25 @@ test('Making host data', () => {
   expect(bot.makeHost(host)).toMatchObject(host)
   expect(bot.makeHost({ ...host, test: '' })).toMatchObject(host)
 })
+
+test('Making host block', () => {
+  expect(bot.makeHostBlock(host)).not.toBeNull()
+  expect(bot.makeHostBlock(host)).not.toBeUndefined()
+})
+
+test('Making host list', () => {
+  const list = bot.makeHostList('connect', 'Hosts', config)
+  expect(list).not.toBeNull()
+  expect(list).not.toBeUndefined()
+  expect(list[0]).toMatchObject({
+    type: 'select',
+    name: 'connect',
+    message: 'Hosts',
+    choices: []
+  })
+})
+
+test('Making host questions', () => {})
 
 test('Making SSH command', () => {
   expect(bot.makeSSHCommand({ host: '' })).toBeNull()
