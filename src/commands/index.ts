@@ -2,6 +2,7 @@ import * as fs from 'fs'
 import * as pty from 'node-pty'
 import * as prompts from 'prompts'
 import * as rimraf from 'rimraf'
+import chalk from 'chalk'
 import { Signale } from 'signale'
 import { BaseItem, Config, ConfigInfo, Command, Host } from '../types'
 import { colorize, showBanner, showHelp } from '../utils'
@@ -73,9 +74,11 @@ export default class SSHBot {
       !COMMANDS.includes(command as Command) &&
       !command.startsWith('-')
     ) {
+      console.log('')
       this.signale.warn(
         'This command is unavailable. To get more info: $shb help'
       )
+      console.log('')
       return false
     }
     return true
@@ -377,9 +380,10 @@ export default class SSHBot {
       return false
     }
 
-    const hosts = config.hosts
+    let hosts = config.hosts
       .map((host: Host) => this.makeHostBlock(host))
       .join('')
+    hosts = hosts + `\r\n  ${chalk.magentaBright(`${config.hosts.length}`)} hosts`
 
     this.signale.note(`Here are hosts you haved added:\r\n${hosts}`)
   }

@@ -10,6 +10,7 @@ const fs = require("fs");
 const pty = require("node-pty");
 const prompts = require("prompts");
 const rimraf = require("rimraf");
+const chalk_1 = require("chalk");
 const signale_1 = require("signale");
 const utils_1 = require("../utils");
 const constants_1 = require("../constants");
@@ -60,7 +61,9 @@ class SSHBot {
         if (command &&
             !constants_1.COMMANDS.includes(command) &&
             !command.startsWith('-')) {
+            console.log('');
             this.signale.warn('This command is unavailable. To get more info: $shb help');
+            console.log('');
             return false;
         }
         return true;
@@ -240,9 +243,10 @@ class SSHBot {
             this.signale.warn('Looks like you have not added any hosts');
             return false;
         }
-        const hosts = config.hosts
+        let hosts = config.hosts
             .map((host) => this.makeHostBlock(host))
             .join('');
+        hosts = hosts + `\r\n  ${chalk_1.default.magentaBright(`${config.hosts.length}`)} hosts`;
         this.signale.note(`Here are hosts you haved added:\r\n${hosts}`);
     }
     async remove() {
