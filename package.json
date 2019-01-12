@@ -13,7 +13,7 @@
     "build": "npm run clean; tsc -p .",
     "clean": "rimraf bin",
     "format": "prettier --write \"{,!(node_modules|bin)/**/}*.{ts,json}\"",
-    "jest": "jest && codecov",
+    "jest": "jest",
     "shb": "npm run build; node bin/index.js",
     "tslint": "tslint -t verbose -c tslint.json -p . 'src/**/*.ts{,x}'"
   },
