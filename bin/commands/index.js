@@ -246,7 +246,8 @@ class SSHBot {
         let hosts = config.hosts
             .map((host) => this.makeHostBlock(host))
             .join('');
-        hosts = hosts + `\r\n  ${chalk_1.default.magentaBright(`${config.hosts.length}`)} hosts`;
+        hosts =
+            hosts + `\r\n  ${chalk_1.default.magentaBright(`${config.hosts.length}`)} hosts`;
         this.signale.note(`Here are hosts you haved added:\r\n${hosts}`);
     }
     async remove() {

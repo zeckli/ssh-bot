@@ -383,7 +383,8 @@ export default class SSHBot {
     let hosts = config.hosts
       .map((host: Host) => this.makeHostBlock(host))
       .join('')
-    hosts = hosts + `\r\n  ${chalk.magentaBright(`${config.hosts.length}`)} hosts`
+    hosts =
+      hosts + `\r\n  ${chalk.magentaBright(`${config.hosts.length}`)} hosts`
 
     this.signale.note(`Here are hosts you haved added:\r\n${hosts}`)
   }
