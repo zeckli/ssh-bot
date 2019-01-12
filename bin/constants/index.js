@@ -52,4 +52,4 @@ exports.SIGNALE_SETTING = {
         }
     }
 };
-exports.VERSION = '0.1.2';
+exports.VERSION = '0.1.3';

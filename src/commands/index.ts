@@ -28,6 +28,9 @@ export default class SSHBot {
    * at a time.
    */
   async dispatch(): Promise<any> {
+    if (!this.isValidCommand()) {
+      return false
+    }
     switch (this.command) {
       case 'add': {
         return await this.add()
@@ -57,6 +60,25 @@ export default class SSHBot {
         return await this.run()
       }
     }
+  }
+
+  /**
+   * Validate given command.
+   */
+  isValidCommand(): boolean {
+    const [node, script, ...params] = process.argv
+    const [command, ...rest] = params || [null, null]
+    if (
+      command &&
+      !COMMANDS.includes(command as Command) &&
+      !command.startsWith('-')
+    ) {
+      this.signale.warn(
+        'This command is unavailable. To get more info: $shb help'
+      )
+      return false
+    }
+    return true
   }
 
   /**
@@ -435,6 +457,7 @@ export default class SSHBot {
       return false
     }
     if (config.hosts.length === 0) {
+      this.signale.warn('Looks like you have not added any hosts')
       return false
     }
 

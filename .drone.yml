@@ -15,6 +15,9 @@ steps:
 
 - name: jest
   image: node:10
+  environment:
+    CODECOV_TOKEN:
+      from_secret: CODECOV_TOKEN
   commands:
   - npm run jest
 

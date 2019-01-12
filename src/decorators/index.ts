@@ -1,3 +1,6 @@
+/**
+ * Decorator for adding spaces between outputs.
+ */
 export function spacing() {
   return function(target: any, propertyKey: string, descriptor: any) {
     if (descriptor === undefined) {
