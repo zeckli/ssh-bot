@@ -25,9 +25,11 @@
   "license": "MIT",
   "repository": "zeckli/ssh-bot",
   "keywords": [
+    "bot",
     "command-line",
     "shell",
     "ssh",
+    "ssh-bot",
     "typescript",
     "xterm"
   ],

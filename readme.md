@@ -14,6 +14,9 @@
     <a href="https://cloud.drone.io">
         <img alt="Build Status" src="https://cloud.drone.io/api/badges/zeckli/ssh-bot/status.svg" />
     </a>
+    <a href="https://codecov.io/gh/zeckli/ssh-bot">
+        <img src="https://codecov.io/gh/zeckli/ssh-bot/branch/master/graph/badge.svg" />
+    </a>
     <a href="https://github.com/prettier/prettier">
         <img alt="Code Style" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" />
     </a>
