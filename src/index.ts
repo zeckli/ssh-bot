@@ -1,5 +1,4 @@
 #!/usr/bin/env node --harmony
-
 import * as cli from 'commander'
 import { Signale } from 'signale'
 import { COMMANDS, SIGNALE_SETTING } from './constants'

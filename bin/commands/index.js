@@ -21,6 +21,9 @@ class SSHBot {
         this.signale = signale || new signale_1.Signale(constants_1.SIGNALE_SETTING);
     }
     async dispatch() {
+        if (!this.isValidCommand()) {
+            return false;
+        }
         switch (this.command) {
             case 'add': {
                 return await this.add();
@@ -50,6 +53,17 @@ class SSHBot {
                 return await this.run();
             }
         }
+    }
+    isValidCommand() {
+        const [node, script, ...params] = process.argv;
+        const [command, ...rest] = params || [null, null];
+        if (command &&
+            !constants_1.COMMANDS.includes(command) &&
+            !command.startsWith('-')) {
+            this.signale.warn('This command is unavailable. To get more info: $shb help');
+            return false;
+        }
+        return true;
     }
     isValidConfig(config) {
         if (!config || !config.hasOwnProperty('hosts')) {
@@ -269,6 +283,7 @@ class SSHBot {
             return false;
         }
         if (config.hosts.length === 0) {
+            this.signale.warn('Looks like you have not added any hosts');
             return false;
         }
         const list = this.makeHostList('connect', 'Hosts:', config);
