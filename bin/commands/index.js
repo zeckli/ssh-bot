@@ -10,6 +10,7 @@ const fs = require("fs");
 const pty = require("node-pty");
 const prompts = require("prompts");
 const rimraf = require("rimraf");
+const chalk_1 = require("chalk");
 const signale_1 = require("signale");
 const utils_1 = require("../utils");
 const constants_1 = require("../constants");
@@ -22,6 +23,7 @@ class SSHBot {
     }
     async dispatch() {
         if (!this.isValidCommand()) {
+            this.showInvalidCommandInfo();
             return false;
         }
         switch (this.command) {
@@ -60,7 +62,6 @@ class SSHBot {
         if (command &&
             !constants_1.COMMANDS.includes(command) &&
             !command.startsWith('-')) {
-            this.signale.warn('This command is unavailable. To get more info: $shb help');
             return false;
         }
         return true;
@@ -167,6 +168,9 @@ class SSHBot {
     saveConfig(config) {
         fs.writeFileSync(this.file, JSON.stringify(config, null, 2), 'utf8');
     }
+    showInvalidCommandInfo() {
+        this.signale.warn('This command is unavailable. To get more info: $shb help');
+    }
     async add() {
         this.signale.start('Add host');
         this.signale.note('Please enter a new host info');
@@ -240,9 +244,11 @@ class SSHBot {
             this.signale.warn('Looks like you have not added any hosts');
             return false;
         }
-        const hosts = config.hosts
+        let hosts = config.hosts
             .map((host) => this.makeHostBlock(host))
             .join('');
+        hosts =
+            hosts + `\r\n  ${chalk_1.default.magentaBright(`${config.hosts.length}`)} hosts`;
         this.signale.note(`Here are hosts you haved added:\r\n${hosts}`);
     }
     async remove() {
@@ -323,6 +329,9 @@ class SSHBot {
 __decorate([
     decorators_1.spacing()
 ], SSHBot.prototype, "makePrompt", null);
+__decorate([
+    decorators_1.spacing()
+], SSHBot.prototype, "showInvalidCommandInfo", null);
 __decorate([
     decorators_1.spacing()
 ], SSHBot.prototype, "add", null);

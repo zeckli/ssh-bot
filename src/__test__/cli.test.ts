@@ -1,6 +1,7 @@
 import * as fs from 'fs'
 import * as prompts from 'prompts'
 import { BaseItem, Config, ConfigInfo, Command, Host } from '../types'
+import { CONFIG } from '../constants'
 import SSHBot from '../commands'
 
 const bot = new SSHBot()
@@ -65,7 +66,30 @@ test('Making host list', () => {
   })
 })
 
-test('Making host questions', () => {})
+test('Making host questions', () => {
+  expect(bot.makeHostQuestions()).toMatchObject([
+    {
+      type: 'text',
+      name: 'host',
+      message: 'Host (e.g. dev-server):'
+    },
+    {
+      type: 'text',
+      name: 'hostName',
+      message: 'HostName (e.g. your.domain.com):'
+    },
+    {
+      type: 'text',
+      name: 'user',
+      message: 'User (e.g. ubuntu)'
+    },
+    {
+      type: 'text',
+      name: 'identityFile',
+      message: `IdentityFile (e.g. ${CONFIG.home}/.ssh/credentials.pem)`
+    }
+  ])
+})
 
 test('Making SSH command', () => {
   expect(bot.makeSSHCommand({ host: '' })).toBeNull()
