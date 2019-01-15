@@ -30,6 +30,7 @@ export default class SSHBot {
    */
   async dispatch(): Promise<any> {
     if (!this.isValidCommand()) {
+      this.showInvalidCommandInfo()
       return false
     }
     switch (this.command) {
@@ -74,11 +75,6 @@ export default class SSHBot {
       !COMMANDS.includes(command as Command) &&
       !command.startsWith('-')
     ) {
-      console.log('')
-      this.signale.warn(
-        'This command is unavailable. To get more info: $shb help'
-      )
-      console.log('')
       return false
     }
     return true
@@ -243,6 +239,16 @@ export default class SSHBot {
    */
   saveConfig(config: Config): void {
     fs.writeFileSync(this.file, JSON.stringify(config, null, 2), 'utf8')
+  }
+
+  /**
+   * Show invalid command info.
+   */
+  @spacing()
+  showInvalidCommandInfo() {
+    this.signale.warn(
+      'This command is unavailable. To get more info: $shb help'
+    )
   }
 
   //------------------------------- Commands ---------------------------------//

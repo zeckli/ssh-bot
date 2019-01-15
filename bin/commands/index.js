@@ -23,6 +23,7 @@ class SSHBot {
     }
     async dispatch() {
         if (!this.isValidCommand()) {
+            this.showInvalidCommandInfo();
             return false;
         }
         switch (this.command) {
@@ -61,9 +62,6 @@ class SSHBot {
         if (command &&
             !constants_1.COMMANDS.includes(command) &&
             !command.startsWith('-')) {
-            console.log('');
-            this.signale.warn('This command is unavailable. To get more info: $shb help');
-            console.log('');
             return false;
         }
         return true;
@@ -169,6 +167,9 @@ class SSHBot {
     }
     saveConfig(config) {
         fs.writeFileSync(this.file, JSON.stringify(config, null, 2), 'utf8');
+    }
+    showInvalidCommandInfo() {
+        this.signale.warn('This command is unavailable. To get more info: $shb help');
     }
     async add() {
         this.signale.start('Add host');
@@ -328,6 +329,9 @@ class SSHBot {
 __decorate([
     decorators_1.spacing()
 ], SSHBot.prototype, "makePrompt", null);
+__decorate([
+    decorators_1.spacing()
+], SSHBot.prototype, "showInvalidCommandInfo", null);
 __decorate([
     decorators_1.spacing()
 ], SSHBot.prototype, "add", null);
