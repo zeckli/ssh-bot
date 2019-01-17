@@ -9,3 +9,11 @@ test('Validation for config', () => {
   expect(CONFIG['dir']).toBe('.ssh-bot')
   expect(CONFIG['name']).toBe('config.json')
 })
+
+test('Validation for signale setting', () => {
+  expect(Object.keys(SIGNALE_SETTING).length).toBe(2)
+  expect(SIGNALE_SETTING['scope']).toBe('ssh-bot')
+
+  const { types } = SIGNALE_SETTING
+  expect(Object.keys(types).length).toBe(6)
+})

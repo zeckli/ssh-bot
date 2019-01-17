@@ -10,9 +10,12 @@ const config = { hosts: [] }
 
 const host = { host: '', hostName: '', user: '', identityFile: '' }
 
-test('Validation for dispatch', () => {})
+test('Dispatch task', async () => {
+  const result = await bot.dispatch()
+  expect(result).toBeFalsy()
+})
 
-test('Validation for isValidCommand', () => {
+test('Validation for command', () => {
   expect(bot.isValidCommand()).toBeTruthy()
 })
 
