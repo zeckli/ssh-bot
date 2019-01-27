@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import * as pty from 'node-pty'
+import * as pty from 'node-pty-prebuilt'
 import * as prompts from 'prompts'
 import * as rimraf from 'rimraf'
 import chalk from 'chalk'

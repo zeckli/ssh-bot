@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
-const pty = require("node-pty");
+const pty = require("node-pty-prebuilt");
 const prompts = require("prompts");
 const rimraf = require("rimraf");
 const chalk_1 = require("chalk");
